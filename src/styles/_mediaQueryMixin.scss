@@ -1,0 +1,109 @@
+@mixin max-width($maxWidth) {
+  @media screen and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+// portrait is for v1 Rui UI, one day should remove when all page transition to v2 Erin UI
+@mixin hand-held() {
+  @media (orientation: portrait), (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin landscape() {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+$Pad-size: 1000px;
+
+@mixin upper-pad() {
+  @media screen and (min-width: #{$Pad-size - 1px}) {
+    @content;
+  }
+}
+
+@mixin under-pad() {
+  @media screen and (max-width: #{$Pad-size - 1px}) {
+    @content;
+  }
+}
+
+$mobile-size: 600px;
+
+@mixin under-mobile() {
+  @media screen and (max-width: #{$mobile-size - 1px}) {
+    @content;
+  }
+}
+
+@mixin maxW-320() {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin maxW-375() {
+  @media screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin maxW-768() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin maxW-960() {
+  @media screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin maxW-1024() {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin maxW-1280() {
+  @media screen and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin maxW-1680() {
+  @media screen and (max-width: 1680px) {
+    @content;
+  }
+}
+
+@mixin maxW-1920() {
+  @media screen and (max-width: 1920px) {
+    @content;
+  }
+}
+
+// UI Rui ver...
+$container_max_w: 1700px;
+@mixin land-big() {
+  @media screen and (min-width: $container_max_w) {
+    @content;
+  }
+}
+
+$container_max_h: 900px;
+@mixin land-vh-small() {
+  @media screen and (orientation: landscape) and (max-height: $container_max_h) {
+    @content;
+  }
+}
+
+@mixin ie11() {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}

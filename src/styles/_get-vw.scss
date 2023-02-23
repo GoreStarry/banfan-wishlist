@@ -1,0 +1,29 @@
+@use "sass:math";
+$vw-viewport: 1920;
+
+@function super-vh($percent) {
+  @return calc(#{$percent} * var(--vh, 1vh));
+}
+
+@function get-vw($font, $cus-viewport: 1920) {
+  $vw-context: $cus-viewport * 0.01 * 1px;
+  @return math.div($font, $vw-context) * 1vw;
+}
+
+@function get-vw-l($font, $cus-viewport: 1080) {
+  $vw-context: $cus-viewport * 0.01 * 1px;
+  @return calc(#{math.div($font, $vw-context)} * var(--vh, 1vh));
+}
+
+@function get-vw-p($font, $cus-viewport: 375) {
+  $vw-context: $cus-viewport * 0.01 * 1px;
+  @return math.div($font, $vw-context) * 1vw;
+}
+
+@function get-book-size($size) {
+  @return calc(#{$size} / 667 * var(--book-height));
+}
+
+@function get-letter-size($size) {
+  @return calc(#{$size} / 552 * var(--book-height));
+}

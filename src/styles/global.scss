@@ -1,0 +1,91 @@
+:root {
+  --systemGray: rgb(142, 142, 147);
+  --systemGray2: rgb(99, 99, 102);
+  --systemGray3: rgb(72, 72, 74);
+  --systemGray4: rgb(58, 58, 60);
+  --systemGray5: rgb(44, 44, 46);
+  --systemGray6: rgb(28, 28, 30);
+  --systemBlue: rgb(10, 132, 255);
+  --systemGreen: rgb(48, 209, 88);
+  --systemIndigo: rgb(94, 92, 230);
+  --systemOrange: rgb(255, 159, 10);
+  --systemPink: rgb(255, 55, 95);
+  --systemPurple: rgb(191, 90, 242);
+  --systemRed: rgb(255, 69, 58);
+  --systemTeal: rgb(100, 210, 255);
+  --systemYellow: rgb(255, 214, 10);
+  --goreOrange: #e38143;
+  --goreBlue: #4e9bcf;
+  --goreGold: rgb(224, 186, 118);
+  --goreDarkGold: rgb(170, 140, 84);
+  --goreGreen: #3fa2a6;
+}
+
+*,
+html {
+  box-sizing: border-box;
+  font-family: Helvetica, "微軟正黑體", "Microsoft JhengHei", "Heiti TC", "黑體",
+    Arial, sans-serif, serif;
+}
+
+a {
+  text-decoration: none; /* no underline */
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.landscape {
+  @media (orientation: portrait) {
+    display: none;
+  }
+}
+
+.portrait {
+  @media (orientation: landscape) {
+    display: none;
+  }
+}
+
+.flex {
+  @at-root {
+    &--center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &--col {
+      display: flex;
+      flex-direction: column;
+      &--AI_center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      &--JC_center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    &--row {
+      display: flex;
+      flex-direction: row;
+      &--AI_center {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      &--JC_center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    &--extend {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@use "sass:math";
+@import "./_mediaQueryMixin.scss";
+
+$grid-column-gap: 20px;
+
+@function getGridWidth($container-width, $grid-num, $init-grid-num) {
+  @return #{math.div($container-width, $init-grid-num) * $grid-num -
+    $grid-column-gap};
+}
+
+@mixin grid-container-RWD-width(
+  $media-query-max-width-list: "init" 1680 1280 1000 600,
+  $rwd-container-list: 1620 1200 960 null null,
+  $grid-num: 12,
+  $init-grid-num: 12
+) {
+  @each $max-width in $media-query-max-width-list {
+    $i: index($media-query-max-width-list, $max-width);
+    $container-width: nth($rwd-container-list, $i);
+
+    @if $i == 1 {
+      // no max-width media query
+      width: getGridWidth($container-width, $grid-num, $init-grid-num);
+    } @else if $max-width > 1000 {
+      @include max-width(#{$max-width - 1 + "px"}) {
+        width: getGridWidth($container-width, $grid-num, $init-grid-num);
+      }
+    } @else if $max-width <= 600 {
+      $grid-column-gap: 14px;
+      @include max-width(#{$max-width - 1 + "px"}) {
+        width: calc(100% - #{$grid-column-gap * 2});
+      }
+    } @else {
+      // under pad
+      @include max-width(#{$max-width - 1 + "px"}) {
+        width: calc(100% - #{$grid-column-gap * 2});
+      }
+    }
+  }
+}

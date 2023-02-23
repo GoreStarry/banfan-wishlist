@@ -1,0 +1,22 @@
+@use "../../styles/mediaQueryMixin";
+@use "../../styles/get-vw";
+
+.Description {
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  margin-bottom: 30vh;
+  @include mediaQueryMixin.upper-pad {
+    font-size: 22px;
+  }
+  @include mediaQueryMixin.under-pad {
+    font-size: 18px;
+  }
+  section {
+    height: get-vw.super-vh(100);
+  }
+}
+
+.title{
+  font-size: 2rem;
+}
